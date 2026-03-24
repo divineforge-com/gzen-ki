@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="home-hero">
+  <h1>Architect</h1>
+  <p class="home-tagline">A senior architect's notebook on Azure, AI, and modern cloud systems.</p>
+</div>
+<section class="recent-posts">
+  <h2>Recent Articles</h2>
+  <ul class="post-list">
+    {{ range first 10 (where .Site.RegularPages "Section" "articles") }}
+    <li class="post-item">
+      <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <div class="post-tags">
+        {{ range .Params.tags }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>{{ end }}
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  <a href="/articles/" class="view-all">View all articles →</a>
+</section>
+<section class="sections-nav">
+  <div class="section-card"><a href="/patterns/"><h3>Patterns</h3><p>Reusable architecture patterns</p></a></div>
+  <div class="section-card"><a href="/systems/"><h3>Systems</h3><p>Real-world system design</p></a></div>
+  <div class="section-card"><a href="/learn/"><h3>Learn</h3><p>Curated learning paths</p></a></div>
+</section>
+{{ end }}

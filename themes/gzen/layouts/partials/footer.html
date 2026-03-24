@@ -1,0 +1,8 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>© {{ now.Year }} Architect — architect.gzen.io</p>
+    {{ with .Site.Params.buyMeACoffeeURL }}
+    <p class="support-link"><a href="{{ . }}" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
+    {{ end }}
+  </div>
+</footer>

@@ -1,0 +1,26 @@
+baseURL = "https://architect.gzen.io/"
+languageCode = "en-us"
+title = "Architect"
+theme = "gzen"
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = "A senior architect's notebook on Azure, AI, and modern cloud systems."
+  author = "gzen"
+  buyMeACoffeeURL = ""   # override via env HUGO_PARAMS_BUYMEACOFFEEURL
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.highlight]
+    style = "github"
+    lineNos = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
