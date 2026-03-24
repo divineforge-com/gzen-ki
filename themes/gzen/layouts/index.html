@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="home-hero">
+  <span class="hero-badge">⚡ GZen Architect</span>
   <h1>Architect</h1>
   <p class="home-tagline">A senior architect's notebook on Azure, AI, and modern cloud systems.</p>
 </div>
@@ -19,9 +20,33 @@
   <a href="/articles/" class="view-all">View all articles →</a>
 </section>
 <section class="sections-nav">
-  <div class="section-card"><a href="/solutions/"><h3>Solutions</h3><p>Real-world architecture solutions</p></a></div>
-  <div class="section-card"><a href="/tags/ai/"><h3>#ai</h3><p>AI & machine learning patterns</p></a></div>
-  <div class="section-card"><a href="/tags/azure/"><h3>#azure</h3><p>Azure cloud architecture</p></a></div>
-  <div class="section-card"><a href="/tags/mongodb/"><h3>#mongodb</h3><p>MongoDB & data solutions</p></a></div>
+  <div class="section-card">
+    <a href="/solutions/">
+      <span class="card-icon">🏗️</span>
+      <h3>Solutions</h3>
+      <p>Real-world architecture solutions</p>
+    </a>
+  </div>
+  <div class="section-card">
+    <a href="/tags/ai/">
+      <span class="card-icon">🤖</span>
+      <h3>#ai</h3>
+      <p>AI &amp; machine learning patterns</p>
+    </a>
+  </div>
+  <div class="section-card">
+    <a href="/tags/azure/">
+      <span class="card-icon">☁️</span>
+      <h3>#azure</h3>
+      <p>Azure cloud architecture</p>
+    </a>
+  </div>
+  <div class="section-card">
+    <a href="/tags/mongodb/">
+      <span class="card-icon">🍃</span>
+      <h3>#mongodb</h3>
+      <p>MongoDB &amp; data solutions</p>
+    </a>
+  </div>
 </section>
 {{ end }}
