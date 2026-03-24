@@ -219,3 +219,82 @@ img { max-width: 100%; height: auto; border-radius: 6px; }
   .post-date { grid-row: auto; }
   .post-tags { grid-column: 1; }
 }
+
+/* ===== Nav Tags ===== */
+.nav-tag-group {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nav-tag {
+  font-size: 0.75rem;
+  padding: 0.15em 0.55em;
+}
+
+/* ===== Search (nav) ===== */
+.nav-search { margin-left: auto; }
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--color-code-bg);
+}
+.search-input {
+  border: none;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.3em 0.6em;
+  color: var(--color-text);
+  width: 160px;
+  outline: none;
+}
+.search-input::placeholder { color: var(--color-muted); }
+.search-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.35em 0.5em;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.search-btn:hover { color: var(--color-accent); }
+
+/* ===== Search Page ===== */
+.search-page { margin-top: var(--spacing-lg); }
+.search-page-form {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--color-code-bg);
+  max-width: 560px;
+}
+.search-page-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  padding: 0.5em 0.8em;
+  color: var(--color-text);
+  outline: none;
+}
+.search-page-input::placeholder { color: var(--color-muted); }
+.search-btn-lg { padding: 0.5em 0.75em; }
+.search-results { margin-top: var(--spacing-lg); }
+.search-msg { color: var(--color-muted); font-size: 0.9rem; margin-bottom: var(--spacing-md); }
+.search-summary { font-size: 0.85rem; color: var(--color-muted); margin: var(--spacing-xs) 0 0; }
+
+@media (max-width: 640px) {
+  .nav-tag-group { display: none; }
+  .search-input { width: 110px; }
+}
