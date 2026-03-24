@@ -1,13 +1,13 @@
 {{ define "main" }}
 <div class="home-hero">
-  <span class="hero-badge">⚡ GZen Architect</span>
+  <span class="hero-badge">GZen · Architect</span>
   <h1>Architect</h1>
   <p class="home-tagline">A senior architect's notebook on Azure, AI, and modern cloud systems.</p>
 </div>
 <section class="recent-posts">
-  <h2>Recent Articles</h2>
+  <h2>Recent Studies</h2>
   <ul class="post-list">
-    {{ range first 10 (where .Site.RegularPages "Section" "articles") }}
+    {{ range first 10 (where .Site.RegularPages "Section" "studies") }}
     <li class="post-item">
       <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -17,7 +17,7 @@
     </li>
     {{ end }}
   </ul>
-  <a href="/articles/" class="view-all">View all articles →</a>
+  <a href="/studies/" class="view-all">View all studies →</a>
 </section>
 <section class="sections-nav">
   <div class="section-card">
