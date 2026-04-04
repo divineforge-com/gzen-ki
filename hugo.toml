@@ -1,20 +1,24 @@
-baseURL = "https://architect.gzen.io/"
-languageCode = "en-us"
-title = "Architect"
+baseURL = "https://genki.gzen.io/"
+languageCode = "zh-Hans"
+title = "元気・健康笔记"
 theme = "gzen"
 [pagination]
-  pagerSize = 10
+  pagerSize = 12
 
 [params]
-  description = "A senior architect's notebook on Azure, AI, and modern cloud systems."
+  description = "以中医为本，气血调和，脾胃健康。集中西医学之精粹，传统智慧与现代养生的数码笔记本。"
+  descriptionJa = "漢方医学を基本に、気血のバランスと脾胃の健康。東西医学の精髄を集めたデジタルノート。"
+  descriptionEn = "A digital notebook grounded in Traditional Chinese Medicine — Qi & Blood, Spleen & Stomach health, and integrative wellness."
   author = "gzen"
-  buyMeACoffeeURL = ""   # override via env HUGO_PARAMS_BUYMEACOFFEEURL
+  buyMeACoffeeURL = ""
 
 [taxonomies]
   tag = "tags"
   category = "categories"
 
 [markup]
+  [markup.goldmark.renderer]
+    unsafe = true
   [markup.highlight]
     style = "github"
     lineNos = true
