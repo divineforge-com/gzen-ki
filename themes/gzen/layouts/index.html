@@ -1,13 +1,19 @@
 {{ define "main" }}
 <div class="home-hero">
-  <span class="hero-badge">GZen · Architect</span>
-  <h1>Architect</h1>
-  <p class="home-tagline">A senior architect's notebook on Azure, AI, and modern cloud systems.</p>
+  <span class="hero-badge">元気 · GZen · 健康</span>
+  <h1>气血调和，健康长寿</h1>
+  <p class="hero-ja">気血を整え、健やかに長生きする</p>
+  <p class="home-tagline">
+    以中医为本，汇聚气血、脾胃、本草、食疗知识。<br>
+    集中西医学之精粹，强身健体的数码笔记本。
+  </p>
+  <p class="tagline-en">A digital notebook rooted in Traditional Chinese Medicine — Qi &amp; Blood, Spleen &amp; Stomach, herbal wisdom, and integrative wellness.</p>
 </div>
+
 <section class="recent-posts">
-  <h2>Recent Studies</h2>
+  <h2>最新笔记</h2>
   <ul class="post-list">
-    {{ range first 10 (where .Site.RegularPages "Section" "studies") }}
+    {{ range first 10 (.Site.RegularPages.ByDate.Reverse) }}
     <li class="post-item">
       <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -17,35 +23,56 @@
     </li>
     {{ end }}
   </ul>
-  <a href="/studies/" class="view-all">View all studies →</a>
+  <a href="/notes/" class="view-all">查看笔记分区 →</a>
 </section>
+
 <section class="sections-nav">
   <div class="section-card">
-    <a href="/solutions/">
-      <span class="card-icon">🏗️</span>
-      <h3>Solutions</h3>
-      <p>Real-world architecture solutions</p>
+    <a href="/qixue/">
+      <span class="card-icon">🌿</span>
+      <h3>气血</h3>
+      <span class="card-label-ja">気血 · Qì-Xuè</span>
+      <p>气血理论，阴阳平衡，生命之本</p>
     </a>
   </div>
   <div class="section-card">
-    <a href="/tags/ai/">
-      <span class="card-icon">🤖</span>
-      <h3>#ai</h3>
-      <p>AI &amp; machine learning patterns</p>
+    <a href="/piwei/">
+      <span class="card-icon">🍵</span>
+      <h3>脾胃</h3>
+      <span class="card-label-ja">脾胃 · Pí-Wèi</span>
+      <p>后天之本，气血生化之源</p>
     </a>
   </div>
   <div class="section-card">
-    <a href="/tags/azure/">
-      <span class="card-icon">☁️</span>
-      <h3>#azure</h3>
-      <p>Azure cloud architecture</p>
+    <a href="/bencao/">
+      <span class="card-icon">🌱</span>
+      <h3>本草</h3>
+      <span class="card-label-ja">本草 · Běn-Cǎo</span>
+      <p>常用中药，性味归经，功效主治</p>
     </a>
   </div>
   <div class="section-card">
-    <a href="/tags/mongodb/">
-      <span class="card-icon">🍃</span>
-      <h3>#mongodb</h3>
-      <p>MongoDB &amp; data solutions</p>
+    <a href="/shiliao/">
+      <span class="card-icon">🥣</span>
+      <h3>食疗</h3>
+      <span class="card-label-ja">食療 · Shí-Liáo</span>
+      <p>药食同源，以食养生调理身体</p>
+    </a>
+  </div>
+  <div class="section-card">
+    <a href="/notes/">
+      <span class="card-icon">📝</span>
+      <h3>笔记</h3>
+      <span class="card-label-ja">ノート · Notes</span>
+      <p>中医综合笔记，中西医结合资料</p>
+    </a>
+  </div>
+  <div class="section-card">
+    <a href="/tags/">
+      <span class="card-icon">🏷️</span>
+      <h3>标签</h3>
+      <span class="card-label-ja">タグ · Tags</span>
+      <p>按主题浏览所有中医知识条目</p>
     </a>
   </div>
 </section>

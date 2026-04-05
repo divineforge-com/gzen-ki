@@ -1,90 +1,120 @@
-# gzen-architect
+# 元気・健康笔记 (gzen-ki)
 
-The blueprint for **[Architect — architect.gzen.io](https://architect.gzen.io)**, a senior architect's notebook on Azure, AI, and modern cloud systems.
+**[元気・健康笔记 — genki.gzen.io](https://genki.gzen.io)** 是一个以中医为本的健康知识数码笔记本，聚焦气血调和、脾胃健康、本草药膳与中西医结合养生。
+
+以中文为主，附日文翻译，最后加上英文注解。图文并茂，部分笔记配合 Excalidraw 图解。
 
 A **[GZen](https://gzen.io)** product, built by **[Divineforge Technology Enterprise](https://divineforge.com)**.
 
 ---
 
-## Design Decisions
+## 设计决策 / Design Decisions
 
-### 1. Static Site with Hugo
-The site is built with [Hugo](https://gohugo.io/) — a Go-based static site generator. All content is written in Markdown with YAML frontmatter. Hugo builds the site in under 100 ms and the output is deployed to GitHub Pages with zero server-side infrastructure.
+### 1. Hugo 静态网站
+采用 [Hugo](https://gohugo.io/) 构建，全部内容以 Markdown + YAML frontmatter 撰写。Hugo 构建速度极快（<100ms），部署至 GitHub Pages，无需服务器基础设施。
 
-### 2. Mobile-First CSS
-All styles are written **mobile-first**: base styles target small screens, and `@media (min-width: ...)` breakpoints layer on progressive enhancements for tablet and desktop. Font sizes are in `rem` units relative to the root `16px` baseline, ensuring consistent scaling across devices and respecting user browser preferences.
+### 2. 暖玉色主题 / Warm Jade Theme
+自定义 CSS 主题，采用：
+- **深玉绿导航栏**（`#1a3a28`）—— 沉稳健康色调
+- **暖米白背景**（`#fdfaf5`）—— 如宣纸般温润
+- **玉绿强调色**（`#2d6b4f`）—— 自然生命感
+- **Noto Serif SC** 字体 —— 优雅的中文衬线字体，适合长文阅读
+- 移动端优先，640px / 860px 断点
 
-Key breakpoints:
-- `min-width: 640px` — tablet / landscape phone
-- `min-width: 860px` — desktop (max content width)
+### 3. 三语结构
+每篇笔记支持三语 frontmatter：
+```yaml
+title: "气血理论"     # 中文（主）
+ja: "気血理論"        # 日文（次）
+en: "Qi and Blood Theory"  # 英文（末）
+```
 
-### 3. Tag-Based Navigation
-Navigation is driven by **tags** rather than sections. Instead of rigid category buckets (Learn / Patterns / Systems), users can navigate by topic (`#azure`, `#ai`, `#architecture`, `#mongodb`). This reflects how architects actually think — across domains, not within silos.
+### 4. Excalidraw 图解
+提供 `excalidraw` shortcode，支持两种模式：
+- **图片模式**（默认）：嵌入本地 SVG/PNG 导出图
+- **嵌入模式**：嵌入 Excalidraw 在线分享 URL 的 iframe
 
-The mobile hamburger drawer keeps the nav clean on small screens while exposing the full tag set on desktop.
+```
+{{< excalidraw src="/diagrams/qi-xue.svg" alt="气血关系图" caption="气与血的相互关系" >}}
+{{< excalidraw src="https://excalidraw.com/#..." type="embed" caption="脾胃运化示意" >}}
+```
 
-### 4. Client-Side Search
-Search is implemented **without a backend** using Hugo's JSON output format:
-- `index.json` is generated at build time, containing title, URL, summary, tags, and section for every page.
-- The `/search/` page fetches this index in the browser and runs lightweight full-text matching using keyword tokenisation.
-- Supports `?q=` URL parameters for shareable search links.
-- Summaries are sanitised with Hugo's `plainify` filter before indexing to prevent XSS.
-- Input is debounced (200 ms) for performance.
+### 5. 客户端全文搜索
+搜索无需后端，通过 Hugo JSON 输出实现：
+- 构建时生成 `index.json`，包含每页的标题、URL、摘要、标签与分区
+- `/search/` 页面在浏览器端做关键词匹配（支持中文关键词）
+- 支持 `?q=` URL 参数实现可分享搜索链接
+- 输入防抖（200ms）
 
-### 5. Solutions over Systems
-The `systems/` section was renamed to `solutions/` to better reflect the purpose: real-world, end-to-end architecture solutions rather than abstract system diagrams.
+### 6. 知识分区结构
+导航以**内容分区**驱动，辅以标签：
 
-### 6. Favicon — 巨 (GZen)
-The favicon uses the Chinese character **巨** (jù — "giant, enormous"), the root character of GZen, rendered in white on the GZen blue (`#2563eb`) as an SVG. SVG favicons are supported by all modern browsers and scale perfectly at any resolution.
+| 分区 | 日文 | 内容 |
+|------|------|------|
+| `/notes/` | ノート | 综合中医笔记、中西医结合 |
+| `/qixue/` | 気血 | 气血理论、阴阳平衡 |
+| `/piwei/` | 脾胃 | 脾胃功能、消化调理 |
+| `/bencao/` | 本草 | 中药材性味归经功效 |
+| `/shiliao/` | 食療 | 药膳食疗、以食养生 |
 
-### 7. Diagram Shortcode
-Diagrams are embedded via a Hugo shortcode (`{{< diagram >}}`) rather than raw HTML. This keeps Markdown files clean and avoids enabling global unsafe HTML rendering in the Goldmark parser.
+### 7. Logo — 元 (Yuán)
+导航栏 Logo 使用汉字**「元」**（源自元气/元氣，日文 Genki），呈现为白色字符配玉绿方块，象征生命活力之源。
 
 ---
 
-## Content Structure
+## 内容结构 / Content Structure
 
 ```
 content/
-├── articles/        # 30-day architecture series (Azure, AI, cloud)
-├── solutions/       # Real-world end-to-end architecture solutions
-├── patterns/        # Reusable architecture patterns (legacy section)
-├── learn/           # Curated learning paths (legacy section)
-└── _index.md        # Homepage content
+├── notes/           # 综合中医笔记、中西医结合资料
+├── qixue/           # 气血理论与调养
+├── piwei/           # 脾胃健康与调理
+├── bencao/          # 本草中药知识
+├── shiliao/         # 食疗药膳
+├── search.md        # 搜索页
+└── _index.md        # 首页
 ```
 
 ---
 
-## Development
+## 开发指南 / Development
 
 ```bash
-# Install Hugo extended ≥ 0.147.7
+# 安装 Hugo extended ≥ 0.147.7
 # https://gohugo.io/installation/
 
-# Serve locally with live reload
+# 本地开发服务器（热重载）
 hugo server
 
-# Production build
+# 生产构建
 hugo --minify
 ```
 
-Output goes to `public/` (excluded from git). Deployed automatically via GitHub Actions on push to `main`.
+输出至 `public/`（已 gitignore）。推送至 `main` 分支后自动部署（GitHub Actions）。
 
 ---
 
-## Adding Articles
+## 新建笔记 / Creating Notes
 
 ```bash
-bash scripts/new-article.sh "Your Article Title"
+# 新建笔记（指定分区和标题）
+bash scripts/new-note.sh notes "笔记标题"
+bash scripts/new-note.sh qixue "气虚体质调养"
+bash scripts/new-note.sh piwei "脾胃保养日常"
+bash scripts/new-note.sh bencao "黄芪功效详解"
+bash scripts/new-note.sh shiliao "红枣枸杞粥"
 ```
 
-Or create manually in `content/articles/` with frontmatter:
+手动创建时，frontmatter 格式：
 
 ```yaml
 ---
-title: "Article Title"
-date: "YYYY-MM-DD"
-summary: "One-sentence summary."
-tags: ["azure", "architecture", "cloud"]
+title: "气血理论：人体生命的根本动力"
+ja: "気血理論：生命の根本的な動力"
+en: "Qi and Blood Theory: The Fundamental Force of Life"
+date: 2026-04-04
+tags: ["气血", "基础理论"]
+description: "一句话简介。"
 ---
 ```
+

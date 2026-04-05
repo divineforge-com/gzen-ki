@@ -1,4 +1,4 @@
 ---
-title: "Architect"
-description: "A senior architect's notebook on Azure, AI, and modern cloud systems."
+title: "元気・健康笔记"
+description: "以中医为本，气血调和，脾胃健康。集中西医学之精粹，传统智慧与现代养生的数码笔记本。"
 ---
