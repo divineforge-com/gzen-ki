@@ -1,0 +1,48 @@
+# ── Main Navigation ─────────────────────────────────────────────────────────────
+# Ordered: general → theory → remedies → practice → reference
+
+[[main]]
+  name    = "笔记"
+  pageRef = "notes"
+  weight  = 10
+
+[[main]]
+  name    = "气血"
+  pageRef = "qixue"
+  weight  = 20
+
+[[main]]
+  name    = "脾胃"
+  pageRef = "piwei"
+  weight  = 30
+
+[[main]]
+  name    = "本草"
+  pageRef = "bencao"
+  weight  = 40
+
+[[main]]
+  name    = "食疗"
+  pageRef = "shiliao"
+  weight  = 50
+
+[[main]]
+  name    = "气功"
+  pageRef = "qigong"
+  weight  = 60
+
+[[main]]
+  name    = "图鉴"
+  pageRef = "gallery"
+  weight  = 70
+
+# ── Footer Navigation ───────────────────────────────────────────────────────────
+[[footer]]
+  name    = "标签"
+  pageRef = "tags"
+  weight  = 10
+
+[[footer]]
+  name   = "GZen.io"
+  url    = "https://gzen.io"
+  weight = 20
