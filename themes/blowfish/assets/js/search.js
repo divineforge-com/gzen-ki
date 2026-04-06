@@ -127,18 +127,22 @@ function buildIndex() {
   var baseURL = wrapper.getAttribute("data-url");
   baseURL = baseURL.replace(/\/?$/, "/");
   fetchJSON(baseURL + "index.json", function (data) {
-    var options = {
-      shouldSort: true,
-      ignoreLocation: true,
-      threshold: 0.0,
-      includeMatches: true,
-      keys: [
-        { name: "title", weight: 0.8 },
-        { name: "section", weight: 0.2 },
-        { name: "summary", weight: 0.6 },
-        { name: "content", weight: 0.4 },
-      ],
-    };
+    var options = Object.assign(
+      {
+        shouldSort: true,
+        ignoreLocation: true,
+        threshold: 0.0,
+        includeMatches: true,
+        minMatchCharLength: 1,
+        keys: [
+          { name: "title", weight: 0.8 },
+          { name: "section", weight: 0.2 },
+          { name: "summary", weight: 0.6 },
+          { name: "content", weight: 0.4 },
+        ],
+      },
+      window.__fusejsOptions || {}
+    );
     /*var finalIndex = [];
     for (var i in data) {
       if(data[i].type != "users" && data[i].type != "tags" && data[i].type != "categories"){
