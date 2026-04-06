@@ -12,7 +12,7 @@ disableImageOptimization   = false
 disableTextInHeader        = false
 
 # Which content sections count as "articles" for homepage recent list
-mainSections = ["notes", "qixue", "piwei", "bencao", "shiliao", "qigong"]
+mainSections = ["notes", "qigong"]
 
 # ── Header ──────────────────────────────────────────────────────────────────────
 [header]
