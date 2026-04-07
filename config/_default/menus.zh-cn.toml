@@ -1,0 +1,27 @@
+# ── Main Navigation ─────────────────────────────────────────────────────────────
+
+[[main]]
+  name    = "笔记"
+  pageRef = "notes"
+  weight  = 10
+
+[[main]]
+  name    = "气功"
+  pageRef = "qigong"
+  weight  = 20
+
+[[main]]
+  name    = "图鉴"
+  pageRef = "gallery"
+  weight  = 30
+
+# ── Footer Navigation ───────────────────────────────────────────────────────────
+[[footer]]
+  name    = "标签"
+  pageRef = "tags"
+  weight  = 10
+
+[[footer]]
+  name   = "GZen.io"
+  url    = "https://gzen.io"
+  weight = 20
